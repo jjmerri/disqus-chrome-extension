@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-    // this url is used a string identifier for the disqus conversation
-    // only works with http and https protocol so strip whatever the protocol is and hardcode http
-    const disqus_extension__currentUrl = tabs[0].url.replace(
-      /(^\w+:|^)\/\//,
-      ""
-    );
+    var parser = document.createElement("a");
+    parser.href = tabs[0].url;
 
-    window.disqus_extension__currentUrl = `http://${disqus_extension__currentUrl}`;
+    window.disqus_extension__currentUrl =
+      `http://${parser.hostname}/${parser.pathname}`.replace(/\/+$/g, "");
 
     let dsq = document.createElement("script");
     dsq.type = "text/javascript";
