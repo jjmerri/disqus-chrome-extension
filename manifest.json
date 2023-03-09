@@ -8,6 +8,7 @@
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
   },
+  "description": "This is an UNOFFICIAL Disqus extension that allows you to use Disqus on any site by clicking the extension icon to open a popup.",
   "action": {
     "default_popup": "popup.html"
   },
